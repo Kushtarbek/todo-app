@@ -46,11 +46,14 @@ function App() {
 
       <div className="list">
 
-        {toDo.map((item) => <ToDo 
-        key={item._id} 
-        text={item.text}
-        updateMode = {() => updateMode(item._id, item.text)}
-        deleteToDo = {() => deleteToDo(item._id, setToDo)} />)}
+        {Array.isArray(toDo) ? toDo.map((item) =>
+        ( <ToDo 
+          key={item._id} 
+          text={item.text}
+          updateMode = {() => updateMode(item._id, item.text)}
+          deleteToDo = {() => deleteToDo(item._id, setToDo)} 
+        />
+        )) : null}
 
       </div>
 
